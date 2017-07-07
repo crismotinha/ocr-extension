@@ -1,16 +1,25 @@
 {
 
-  "manifest_version": 2,
-  "name": "OCR-Extension",
+  "manifest_version": 1,
+  "name": "ocr-extension",
   "version": "1.0",
-
   "description": "Recreates the webpage adding alt tag to images",
+  "version": "1.0",
+  
+  "permissions": [
+    "<all_urls>",
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "*://developer.mozilla.org/*",
+    "about:debugging"
+  ],
 
   "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "js": ["main.js"]
-    }
+  {
+    "matches": ["<all_urls>"],
+    "js": ["main.js"]
+  }
   ]
 
 }
