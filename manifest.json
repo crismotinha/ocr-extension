@@ -3,7 +3,8 @@
   "manifest_version": 1,
   "name": "ocr-extension",
   "version": "1.0",
-
+  "description": "Recreates the webpage adding alt tag to images",
+  
   "permissions": [
     "<all_urls>",
     "contextMenus",
@@ -18,6 +19,6 @@
     "matches": ["<all_urls>"],
     "js": ["main.js"]
   }
-]
+  ]
 
 }
