@@ -1,18 +1,15 @@
 {
 
-  "manifest_version": 1,
+  "manifest_version": 2,
   "name": "ocr-extension",
   "version": "1.0",
   "description": "Recreates the webpage adding alt tag to images",
-  "version": "1.0",
   
   "permissions": [
     "<all_urls>",
     "contextMenus",
     "activeTab",
-    "tabs",
-    "*://developer.mozilla.org/*",
-    "about:debugging"
+    "tabs"
   ],
 
   "content_scripts": [
