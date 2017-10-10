@@ -10,10 +10,7 @@ imgs.forEach(img => {
 
     fetch(myRequest)
     .then(response => response.json())
-    .then(data => {
-      let text = data.ParsedResults[0].ParsedText;
-      img.setAttribute('alt', text);
-    });
+    .then(data => img.setAttribute('alt', data.ParsedResults[0].ParsedText));
   }
 });
 
