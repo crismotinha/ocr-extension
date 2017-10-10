@@ -1,19 +1,16 @@
-const img = document.getElementsByTagName("IMG");
+const imgs = Array.from(document.getElementsByTagName("IMG")),
+  apiUrl = 'https://api.ocr.space/parse/imageurl',
+  apikey = '538df4ddfd88957';
 
-for (let i = 0; i < img.length; i++){
-    if (img[i].src) {
-        const apiUrl = 'https://api.ocr.space/parse/imageurl';
-        const apikey = '538df4ddfd88957';
-        const imgUrl = img[i].src;
-        const queryString = apiUrl +'?apikey=' + apikey + '&url=' + imgUrl;
-        const myRequest = new Request(queryString, {method: 'GET'});
+imgs.forEach(img => {
+  if (img.src) {
+    let imgUrl = img.src;
+    let queryString = `${apiUrl}?apikey=${apikey}&url=${imgUrl}`;
+    let myRequest = new Request(queryString, {method: 'GET'});
 
-        fetch(myRequest)
-        .then(function(response) { return response.json(); })
-        .then(function(data) {
-            const text = data.ParsedResults[0].ParsedText;
-            img[i].setAttribute('alt', text);
-        })
-    }    
-}
+    fetch(myRequest)
+    .then(response => response.json())
+    .then(data => img.setAttribute('alt', data.ParsedResults[0].ParsedText));
+  }
+});
 
